@@ -1,0 +1,63 @@
+mvn spring-boot:run -Dmaven.wagon.http.ssl.insecure=true -DskipTests=true
+
+mvn clean install -Dmaven.wagon.http.ssl.insecure=true -DskipTests=true
+
+docker pull docker.elastic.co/beats/metricbeat:7.4.0 
+
+POST http://localhost:2375/v1.35/images/create?fromImage=docker.elastic.co/beats/metricbeat:7.4.0&tag=latest HTTP/1.1
+
+docker run -d --user=root --volume="C:/Users/rashmi.n/Documents/AMS/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml" docker.elastic.co/beats/metricbeat:7.4.0 metricbeat -e -E setup.kibana.host=192.168.1.35:5601 -E output.elasticsearch.hosts=["192.168.1.35:9200"] -E setup.ilm.overwrite=true
+
+docker run -d --name=metricbeat-run docker.elastic.co/beats/metricbeat:7.4.0 -E setup.kibana.host=192.168.1.35:5601 -E output.elasticsearch.hosts=["192.168.1.35:9200"]
+
+
+https://marvel-b1-cdn.bc0a.com/f00000000075552/www.perforce.com/sites/default/files/image/2019-06/software%20integrity%20blog.jpg
+
+Go to control panel - Administrative tools - services - start server
+
+onboarding service - 
+utility name
+configuaration
+
+logging server credentials
+dashboard server credentials
+
+onboarding 1 time activity
+
+logging
+elastic search
+view logs using kibana
+
+Onboarding service
+all cred operations
+
+user
+utility name
+
+configurations
+kibana url
+elastic url
+
+------
+http://localhost:8085/h2-console
+http://localhost:8085/swagger-ui.html#
+
+INSERT INTO MMUCONFIGM VALUES (1, 'MetricImg1234','/path/imgname', 'Metric',true);
+SELECT * FROM MMUCONFIGM 
+
+SQL query to verify user and utility list 
+SELECT * FROM APP_USERS;
+SELECT * FROM UTILITY_CONFIG 
+
+utility_name
+image_pathname
+image_name
+utility_onboard_status
+elastic_Search_URL
+kibana_URL
+
+rest controller
+image name to be a parameter
+
+
+------
