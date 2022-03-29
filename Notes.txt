@@ -1,0 +1,99 @@
+TO kill the java process by PID
+
+netstat -ano | findstr 8088
+taskkill /F /PID 9484
+
+-------------
+279089
+Specialization Trainee
+Level 1
+
+-----
+
+
+/*   private Date getPreviousBusinessDate(Date currentDate) throws Exception {
+    	int noOfDaysPrvsBsnsDayBehindCurrentDate=1;
+    	while(!isPreviousDateBusinessDay(currentDate,noOfDaysPrvsBsnsDayBehindCurrentDate) ){
+    		noOfDaysPrvsBsnsDayBehindCurrentDate++;
+    	}
+    	Calendar businessCalendar = Calendar.getInstance();
+    	businessCalendar.setTime(currentDate);
+    	businessCalendar.add(Calendar.DATE,-noOfDaysPrvsBsnsDayBehindCurrentDate);
+        return businessCalendar.getTime();
+    }
+
+
+
+    private boolean isPreviousDateBusinessDay(Date date,int noOfDaysPrvsBsnsDayBehindCurrentDate) throws Exception {
+		LocalDate  currentLocalDate=date.toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
+		LocalDate previousDate=currentLocalDate.minusDays(noOfDaysPrvsBsnsDayBehindCurrentDate);
+        return validateBusinessDateProcCallDAO.callProcRoDateIsBusiness(previousDate,CapitalStockConstants.CALENDAR_CODE).equals(CapitalStockConstants.BUSINESS_DAY_Y);
+	}*/
+	
+
+---
+2 cup - rice
+1/2 - avalakki(medium)
+1/2 - sabbakki
+methi
+soda
+
+---
+
+ALOPB8066G
+039201500870
+icic0000
+sholingnallur
+--
+canara
+4106627
+G1ord@n0
+Scb@6356
+
+ Dinesh
+ 588400 - 1400 = 
+ 587000
+  15000
+  10000
+  
+612000+263000 
+---
+
+
+110154581811
+
+
+---
+18002660058
+
+F527000104    
+
+------
+Technology stack
+Nature of work
+Team size
+What phase project in
+Usual work timings
+Role and Expectation
+
+----------
+GITin
+Java
+mongoDB
+nosql
+
+-----------
+Tell me about yourself
+How to print 1 to 1000 numbers without using any loops? 
+Remove duplicates in list of employees? <Employee{id,name,salary}> 
+How to sort list of employees based on salary in descending order? sort list without using a loop
+What is deadlock and How to avoid deadlock in Java?
+Design 2 microservices that talk to each other and retrieve data from DB using JPA?
+Given a day time how will you improve your microservice?
+What security features have you implemented to secure your application?
+How would you design a solution for a standalone vending machine? 
+------------
+
+
+    StopContainerCmd 
+	ListContainersCmd 

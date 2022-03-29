@@ -1,0 +1,102 @@
+clone the branch
+check if target folder got created
+
+lx-wtap-d1
+
+tomcat
+Springspringboot*20*
+
+Step 1 :
+### MVN clean
+mvn clean install
+Step :2
+#### War building command
+mvnw clean  -Pprod package  -Dmaven.test.skip=true
+
+Step 3: 
+Login to putty , change directory to /tomcat/deploy
+Step 4: Kill running server
+ps aux|grep java
+kill pi(from above command)
+Step 5 : login to filezilla and copy war to /tomcat/deploy
+Step 6: Start server by using below command as per env.
+
+
+#######UAT start script
+scp tomcat@lx-stap-t2:/tomcat/deploy/capital-stock-0.0.1-SNAPSHOT.war /tomcat/deploy/
+
+nohup  java -jar -Dspring.profiles.active=uat,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-0.0.1-SNAPSHOT.war  2>&1 &
+
+java -jar -Dspring.profiles.active=uat,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-0.0.1-SNAPSHOT.war
+
+
+
+
+###### SQE start sript
+nohup  java -jar -Dspring.profiles.active=sqe,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-0.0.1-SNAPSHOT.war  2>&1 &
+java -jar -Dspring.profiles.active=sqe,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-0.0.1-SNAPSHOT.war
+
+
+
+java -jar -Dspring.profiles.active=uat,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-0.0.1-SNAPSHOT.war
+
+
+
+###### SIT start sript
+nohup  java -jar -Dspring.profiles.active=sit,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-0.0.1-SNAPSHOT.war  2>&1 &
+
+java -jar -Dspring.profiles.active=sit,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-0.0.1-SNAPSHOT.war
+
+
+###### DEV start sript
+nohup  java -jar -Dspring.profiles.active=dev,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-0.0.1-SNAPSHOT.war  2>&1 &
+java -jar -Dspring.profiles.active=dev,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-0.0.1-SNAPSHOT.war
+
+
+
+nohup  java -jar -Dspring.profiles.active=dev,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-1.3.1.war  2>&1 &
+
+Step : 7 see log by below command
+tail -100f nohup.out
+
+Step : 8 if required to deploy config.
+copy config (env specific yml) to  location /tomcat/config/secure and to server restart
+
+
+ keytool -cacerts -list -v -storepass changeit > cert.txt
+ keytool -keystore /usr/lib/jvm/java-11-openjdk-11.0.7.10-4.amzn2.0.1.x86_64/lib/security/cacerts -list -v
+ 
+ 
+ 
+ 
+
+
+ mvn spring-boot:run -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8787  -Dserver.port=9090 -Dpath.to.config.dir=/var/data/my/config/dir"
+ 
+ java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=5005 -Dspring.profiles.active=dev,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=. capital-stock-blank-popup.war
+
+
+
+
+
+"D:\Phoenix\Program Files\Java\jdk11.0.5_10\bin\java" -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=5005 -Dspring.profiles.active=dev,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/ capital-stock-1.0.1.war
+
+"D:\Phoenix\Program Files\Java\jdk11.0.5_10\bin\java" -jar  -Dspring.profiles.active=dev,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=. capital-stock-1.0.1.war
+
+"D:\Phoenix\Program Files\Java\jdk11.0.5_10\bin\java" -jar  -Dspring.profiles.active=dev,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=. capital-stock-0.0.1-SNAPSHOT.war
+
+"D:\Phoenix\Program Files\Java\jdk11.0.5_10\bin\java" -jar  -Dspring.profiles.active=dev,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=. capital-stock-blank-popup.war
+
+"D:\Phoenix\Program Files\Java\jdk11.0.5_10\bin\java" -jar  -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=5005 -Dspring.profiles.active=dev,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=. capital-stock-blank-popup.war
+
+
+
+====
+
+
+•	Check process : ps -ef | grep java
+
+•	Kill process : kill -9 pidfrom step1
+
+•	Run war
+nohup  java -jar -Dspring.profiles.active=sit,no-liquibase -Dsun.security.krb5.rcache=none -Dspring.config.additional-location=/tomcat/config/secure/11_05_capital-stock-0.0.1-SNAPSHOT.war  2>&1 &
